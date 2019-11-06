@@ -5,7 +5,7 @@ LABEL version="1.0" maintainer="Amit Verma <amit.verma1@maersk.com>"
 
 
 #run some commands to install the addtional programs
-RUN ["powershell", "New-Item", "c:/test"]
+RUN powershell -command
 Add-WindowsFeature Web-Server;
 
 

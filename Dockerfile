@@ -9,7 +9,7 @@ LABEL maintainer="Amit Verma <amit.verma1@maersk.com>"
 #using disn.exe to install the iis role
 #RUN powershell -command \
 #Add-WindowsFeature Web-Server; \
-RUN dism.exe /online /enable-feature /all /feature-name:iis-webserver /NoRestart
+RUN dism.exe /online /enable-feature /all /featurename:iis-webserver /NoRestart
 
 #creates an HTML file and adding content to the file
 RUN echo "Hello World - Docker file" > C:\inetpub\wwwroot\index.html

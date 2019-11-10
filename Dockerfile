@@ -10,7 +10,7 @@ LABEL maintainer="Amit Verma <amit.verma1@maersk.com>"
 #RUN dism.exe /online /enable-feature /all /featurename:iis-webserver /NoRestart
 
 RUN powershell -command \
-Add-WindowsFeature Web-Server -IncludeManagementTools; \
+Add-WindowsFeature Web-Server; \
 
 #creates an HTML file and adding content to the file
 RUN echo "Hello World - Docker file" > C:\inetpub\wwwroot\index.html

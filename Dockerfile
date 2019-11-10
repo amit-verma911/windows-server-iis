@@ -12,6 +12,15 @@ LABEL maintainer="Amit Verma <amit.verma1@maersk.com>"
 RUN powershell -command \
 Add-WindowsFeature Web-Server; \
 
+#adding tls to website
+RUN powershell.exe -Command " \
+    Import-Module IISAdministration; \
+    $cert = New-SelfSignedCertificate -DnsName demo.google.com -CertStoreLocation cert:\LocalMachine\My; \
+    $certHash = $cert.GetCertHash(); \
+    $sm = Get-IISServerManager; \
+    $sm.Sites[\"Default Web Site\"].Bindings.Add(\"*:443:\", $certHash, \"My\", \"0\"); \
+    $sm.CommitChanges();"
+
 #creates an HTML file and adding content to the file
 #RUN echo "Hello World - Docker file" > C:\inetpub\wwwroot\index.html
 

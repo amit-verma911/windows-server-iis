@@ -13,7 +13,7 @@ RUN powershell -command \
 Add-WindowsFeature Web-Server; \
 
 #creates an HTML file and adding content to the file
-RUN echo "Hello World - Docker file" > C:\inetpub\wwwroot\index.html
+#RUN echo "Hello World - Docker file" > C:\inetpub\wwwroot\index.html
 
 #specify a command to run on coantainer setup
 CMD [ "cmd" ]

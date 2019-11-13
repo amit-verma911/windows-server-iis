@@ -10,7 +10,7 @@ LABEL maintainer="Amit Verma <amit.verma1@maersk.com>"
 #RUN dism.exe /online /enable-feature /all /featurename:iis-webserver /NoRestart
 
 RUN powershell -command \
-Add-WindowsFeature Web-Server; \
+Add-WindowsFeature Web-Server; 
 
 #adding tls to website
 RUN powershell.exe -Command " \
